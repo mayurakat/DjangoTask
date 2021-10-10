@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #di{
+            height: 300px;
+            width: 400px;
+            margin-left: 100px;
+            padding: auto;
+            background-color: violet;
+        }
+        #di h1{
+            text-align: center;
+        }
+        #di p{
+            text-align: center;
+        }
+        #box{
+            height: 800px;
+            width: 500px;
+
+        }
+       
+    </style>
+</head>
+<body>
+    <h2>profile</h2> 
+    <div id="box">
+    
+    <form  action="{% url 'delete' %}" method="POST">
+        {% csrf_token %}
+
+        <h3> FirstName:     {{user.first_name}} </h3><br>
+        <h3>LastName:       {{user.last_name}}</h3> <br>
+        <h3>UserName:       {{user.username}}</h3><br>
+        <h3>Email:          {{user.email}}</h3><br>
+            <br>
+        <input type="submit" value="delete_detail">
+    </form>
+    <li><a href="{% url 'edit'%}">edit_detail</a></li><br><br>
+
+    <li><a href="{% url 'home'%}">home</a></li>
+
+</div>
+</body>
+</html>

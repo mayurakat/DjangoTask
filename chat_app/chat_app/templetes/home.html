@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: skyblue;
+            background-size: cover;
+            height: 1000px;
+            font-family: poppins;
+            font-size: 20px;
+            font-weight: 600;
+            width: 1500px;
+        }
+        header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 70px;
+        }
+        .nav-area{
+            list-style: none;
+        }
+        .nav-area li{
+            display: inline-block;
+            padding: 0 15px;
+            text-transform:uppercase;
+            
+        }
+        .nav-area li a{
+            transition: 3s;
+            color: white;
+        }
+        .nav-area li a:hover{
+            color: tomato;
+        }
+                  
+        
+        #mainl{
+            height: 1300px;
+            width: 1300px;
+            align-items: center;
+            margin-top: 200px;
+            margin-left: 100px;
+        }
+        #main{
+            height: 200px;
+            width: 400px;
+            color: black;
+            display: inline-block;
+            background-color:white;
+        
+        }
+        #main h1{
+            text-align: center;
+        }
+        #main p{
+            text-align: center;
+        }
+       
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Django Task</h1>
+    <nav>
+        <ul class="nav-area">
+            <li><a href="#">home</a></li>
+            
+            {% if user.is_authenticated %}
+            
+           
+            
+            <li>hello,{{user.username}}</li>
+            <li><a href="{% url 'logout'%}">logout</a></li>
+            <li><a href="{% url 'profile'%}">Details</a></li>
+            {% else %}
+           
+            
+            <li><a href="{% url 'register'%}">signup</a></li>
+            <li><a href="{% url 'login'%}">login</a></li>
+            {% endif %}
+           
+        </ul>
+    </nav>
+    </header>
+      
+    
+    </div>
+    
+
+    <div>
+        {% for message in messages%}
+        <h1>{{message}}</h1>
+        {% endfor %}
+    </div>
+    
+
+
+  
+    
+    
+    
+   
+</body>
+
+
+
+
+</html>
